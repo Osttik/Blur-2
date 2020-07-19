@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +18,5 @@ public class SpeedControll : MonoBehaviour
     {
         Speed = (transform.position - _lastPosition).magnitude / Time.deltaTime;
         _lastPosition = transform.position;
-
-        print(Speed);
     }
 }

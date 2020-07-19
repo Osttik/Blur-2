@@ -13,7 +13,7 @@ public class CarCharacteristic
     /// <summary>
     /// Max speed
     /// </summary>
-    public float MaxSpeed { get; set; } = 40000f;
+    public float MaxSpeed { get; set; } = 80000f;
     /// <summary>
     /// Skidding
     /// </summary>

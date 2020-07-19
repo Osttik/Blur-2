@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -7,12 +8,14 @@ public class InputManager : MonoBehaviour
     public float Throttle { get; set; }
     public float Steer { get; set; }
     public float Break { get; set; }
+    public bool UseItem { get; set; }
 
     private void Start()
     {
         Throttle = 0;
         Steer = 0;
         Break = 0;
+        UseItem = false;
     }
 
     private void Update()
@@ -28,53 +31,7 @@ public class InputManager : MonoBehaviour
         {
             Break = 0;
         }
-    }
 
-    private void AlternativeKeyBoard()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (Throttle < 1f)
-            {
-                Throttle += 0.5f * Time.deltaTime;
-            }
-            else
-            {
-                Throttle = 1f;
-            }
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            if (Throttle > -1f)
-            {
-                Throttle -= 0.5f * Time.deltaTime;
-            }
-            else
-            {
-                Throttle = -1f;
-            }
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (Steer > -1f)
-            {
-                Steer -= 1f * Time.deltaTime;
-            }
-            else
-            {
-                Steer = -1f;
-            }
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (Steer < 1f)
-            {
-                Steer += 1f * Time.deltaTime;
-            }
-            else
-            {
-                Steer = 1f;
-            }
-        }
+        UseItem = Input.GetKeyDown(KeyCode.K);
     }
 }
